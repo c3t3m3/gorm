@@ -55,6 +55,7 @@ func Create(config *Config) func(db *gorm.DB) {
 
 					if err == nil {
 						db.RowsAffected, _ = result.RowsAffected()
+						db.LastInsertId, _ = result.LastInsertId()
 						if db.RowsAffected > 0 {
 							if db.Statement.Schema != nil && db.Statement.Schema.PrioritizedPrimaryField != nil && db.Statement.Schema.PrioritizedPrimaryField.HasDefaultValue {
 								if insertID, err := result.LastInsertId(); err == nil {
