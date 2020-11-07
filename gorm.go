@@ -55,6 +55,7 @@ type DB struct {
 	*Config
 	Error        error
 	RowsAffected int64
+	LastInsertId int64
 	Statement    *Statement
 	clone        int
 }
